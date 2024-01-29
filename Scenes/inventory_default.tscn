@@ -22,6 +22,7 @@ columns = 4
 [node name="Slot" parent="PanelContainer/GridContainer" instance=ExtResource("1_wcp7d")]
 layout_mode = 2
 texture = ExtResource("2_iy10l")
+expand_mode = 1
 
 [node name="Slot2" parent="PanelContainer/GridContainer" instance=ExtResource("1_wcp7d")]
 layout_mode = 2

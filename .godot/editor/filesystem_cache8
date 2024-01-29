@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706500087
+::res://::1706559220
 ::res://addons/::1706498791
 ::res://addons/godot-sqlite/::1706498791
 gdsqlite.gdextension::GDExtension::-1::1706498791::0::1::::<><>::
@@ -9,8 +9,8 @@ plugin.cfg::TextFile::-1::1706498791::0::1::::<><>::
 ::res://addons/godot-sqlite/bin/::1706498791
 ::res://addons/godot-sqlite/bin/libgdsqlite.macos.template_debug.framework/::1706498791
 ::res://addons/godot-sqlite/bin/libgdsqlite.macos.template_release.framework/::1706498791
-::res://Database/::1706502605
-new_script.gd::GDScript::-1::1706502605::0::1::::<>Node<>::
+::res://Database/::1706559798
+database.gd::GDScript::-1::1706559961::0::1::::<>Node<>::
 ::res://Fonts/::1706494809
 ::res://Fonts/korohanza-font/::1706500070
 info.txt::TextFile::-1::1670374836::0::1::::<><>::
@@ -23,12 +23,12 @@ Norse-KaWl.otf::FontFile::192080471467332065::1644375458::1706500070::1::::<><>:
 NorseBold-2Kge.otf::FontFile::5687677990223218491::1644375458::1706500070::1::::<><>::
 ::res://Fonts/norse-font/misc/::1706494062
 freefont_EULA_1-3.txt::TextFile::-1::1644375458::0::1::::<><>::
-::res://Scenes/::1706502585
-inventory_default.tscn::PackedScene::6809790758942914317::1706498927::0::1::::<><>::uid://daiprsr4ade7x::::res://Scenes/slot.tscn<>uid://b2sbfkrobrjry::::res://Sprites/icon.svg
-main.tscn::PackedScene::100960276030130533::1706502585::0::1::::<><>::res://Scenes/UI.gd<>uid://c4ayi2i5sdm4l::::res://Scenes/inventory_default.tscn
+::res://Scenes/::1706559707
+inventory_default.tscn::PackedScene::6809790758942914317::1706559334::0::1::::<><>::uid://daiprsr4ade7x::::res://Scenes/slot.tscn<>uid://b2sbfkrobrjry::::res://Sprites/icon.svg
+main.tscn::PackedScene::100960276030130533::1706559961::0::1::::<><>::res://Scenes/UI.gd<>uid://c4ayi2i5sdm4l::::res://Scenes/inventory_default.tscn
 slot.gd::GDScript::-1::1706497440::0::1::::<>TextureRect<>::
 slot.tscn::PackedScene::7176719159499390175::1706498927::0::1::::<><>::res://Scenes/slot.gd
-UI.gd::GDScript::-1::1706498131::0::1::::<>CanvasLayer<>::
+UI.gd::GDScript::-1::1706559331::0::1::::<>CanvasLayer<>::
 ::res://Scenes/Database/::1706498755
 database.gd::GDScript::-1::1706498755::0::1::::<>Node<>::
 ::res://Sprites/::1706500070

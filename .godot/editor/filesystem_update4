@@ -1,3 +1,8 @@
 res://Scenes/main.tscn
-res://Database/database.gd
+res://Scenes/UI.gd
 res://Scenes/inventory_default.tscn
+res://Database/database.gd
+res://Database/Resources/test_resource.gd
+res://Database/database.tscn
+res://Scenes/slot.tscn
+res://Scenes/slot.gd

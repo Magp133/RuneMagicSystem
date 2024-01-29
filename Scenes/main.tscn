@@ -22,7 +22,7 @@ layout_mode = 2
 text = "Menu 1"
 
 [node name="InventoryDefault" parent="UI/GridContainer/VBoxContainer" instance=ExtResource("2_eb8lg")]
-visible = false
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/GridContainer"]
@@ -33,6 +33,7 @@ layout_mode = 2
 text = "Menu 2"
 
 [node name="InventoryDefault2" parent="UI/GridContainer/VBoxContainer2" instance=ExtResource("2_eb8lg")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
@@ -44,6 +45,7 @@ layout_mode = 2
 text = "Menu 3"
 
 [node name="InventoryDefault3" parent="UI/GridContainer/VBoxContainer3" instance=ExtResource("2_eb8lg")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 

@@ -3,7 +3,6 @@ extends Node
 var db
 var db_name = "res://Database/MainDataBase"
 
-
 #different inventory and object databases.
 var material_cache: Dictionary = {}
 var instruction_cache: Dictionary = {}
@@ -16,10 +15,10 @@ func _ready():
 	db.path = db_name
 	db.open_db()
 	
-	populate_dictionary(material_cache, "Materials")
-	populate_dictionary(instruction_cache, "Instructions")
-	populate_dictionary(rune_base_cache, "Runes")
-	populate_dictionary(saved_rune_cache, "SavedRunes")
+	#populate_dictionary(material_cache, "Materials")
+	#populate_dictionary(instruction_cache, "Instructions")
+	#populate_dictionary(rune_base_cache, "Runes")
+	#populate_dictionary(saved_rune_cache, "SavedRunes")
 	
 
 func populate_dictionary(input_dictionary: Dictionary, table_name: String):
@@ -28,4 +27,7 @@ func populate_dictionary(input_dictionary: Dictionary, table_name: String):
 	
 	
 	for i in range(0, data.size()):
-		pass
+		input_dictionary[data["Id"]]
+		
+func commit_data(table_name: String, input_dictionary: Dictionary):
+	db.insert_row(table_name, input_dictionary)
