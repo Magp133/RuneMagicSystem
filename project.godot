@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
+[autoload]
+
+Database="*res://Database/database.gd"
+
 [gui]
 
 theme/custom="res://Themes/norsefont.tres"
