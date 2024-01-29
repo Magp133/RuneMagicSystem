@@ -1,0 +1,50 @@
+KOROHANZA Font Documentation
+
+KOROHANZA font is copyright (c)1994-1999 by Dave Bastian.
+All rights reserved.
+
+
+Description
+
+KOROHANZA is an odd font based on a series of magical characters described by 15th century Tyrolian alchemist Pietro Ulstadt in his work "Das Buch Korohanza," and only slightly elaborated on in his seminal "Secreto della tramutatione metallica." Since Ulstadt's works contained over 300 such characters and symbols, I've included only a few, and have arbitrarily assigned upper and lower cases, numerals, punctuation, even some diacriticals--but hey, who can tell what's what? Only a long-dead Tyrolian knows the difference.
+
+Okay. The truth is, I really just made up all that stuff about Ulstadt. I made this font--but the other story sounds better. See if you can figure out a good use for this font; I sure can't. You could use it to send secret messages to your pals, or maybe to ad an exotic, decorative touch to otherwise drab correspondence. Sets well at small to medium point sizes.
+
+Installing KOROHANZA
+
+MACINTOSH:
+
+For System 7 and above, just drag both the "Korohanza.bmap" and the "Koroh" files onto your system folder icon. Finder will prompt you whether or not to add them to your Fonts folder; click OK and you're set! If you're using font management software like Suitcase, consult your user's manual for further instruction.
+
+WINDOWS:
+
+Windows 3.1: Open the control panel and choose FONTS
+Click the ADD button, find the TrueType font, and click OK.
+
+Windows 95 and above: Open the Windows FONT folder; click, drag, and drop the TrueType font inside.
+
+
+You may use this font in any of your projects. If you find an actual use for this font, drop me a line.
+
+
+Disclaimer (This notice MUST be included with any distribution):
+
+KOROHANZA works fine on my Macintosh. It may not work on your PC. Dave Bastian MAKES NO WARRANTIES, EXPRESS OR IMPLIED, REGARDING THIS FONT. Dave Bastian DOES NOT WARRANT, GUARANTEE OR MAKE ANY REPRESENATIONS REGARDING THE USE OR THE RESULTS OF THE USE OF THIS FONT IN TERMS OF ITS RELIABILITY, OR OTHERWISE. IN NO EVENT WILL Dave Bastian BE LIABLE TO YOU FOR ANY DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THIS FONT.
+
+This font may not be suitable for any of your purposes, but it is decorative in a quirky sort of way.
+
+
+THIS IS A FREEWARE OFFERING. To do otherwise would be sheer affrontery--the characters all look ghastly, and there's pratically no use for this font. While this font is free, it is NOT in the public domain and remains the exclusive property of Dave Bastian.
+
+
+Copyright & Distribution Information
+
+KOROHANZA is copyright (c)1994-1999 by Dave Bastian. All rights reserved.
+
+IMPORTANT:  You may not distribute KOROHANZA without PRIOR WRITTEN PERMISSION FROM THE AUTHOR, and, after receiving said permission, YOU MUST INCLUDE THIS DOCUMENT. Please don’t sell it (good luck trying), and don’t include it on any CDs or other electronic media without my permision. 
+
+FOR PERMISSION TO DISTRIBUTE IN ANY WAY, SHAPE, OR FORM, WRITE TO THE FOLLOWING EMAIL ADDRESS:
+
+permissions@davebastian.com
+
+Other free fonts available at "http://www.davebastian.com"

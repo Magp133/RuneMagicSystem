@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cxj8um11qjiga"]
+
+[ext_resource type="FontFile" uid="uid://c0bsjedxh24t" path="res://Fonts/norse-font/Norse-KaWl.otf" id="1_c1h6w"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_c1h6w")
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_c1h6w")
