@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4ayi2i5sdm4l"]
+
+[ext_resource type="Script" path="res://Scenes/UI/inventory_default.gd" id="1_tbb27"]
+[ext_resource type="PackedScene" uid="uid://daiprsr4ade7x" path="res://Scenes/UI/slot.tscn" id="2_kvlty"]
+
+[node name="InventoryDefault" type="Control"]
+custom_minimum_size = Vector2(172, 2.08165e-12)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 136.0
+offset_bottom = 90.0
+script = ExtResource("1_tbb27")
+item_slot = ExtResource("2_kvlty")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4

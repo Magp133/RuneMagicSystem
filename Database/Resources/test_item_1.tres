@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="TestItem" load_steps=2 format=3 uid="uid://bbfndggkrv2s"]
-
-[ext_resource type="Script" path="res://Database/Resources/test_resource.gd" id="1_03ymn"]
-
-[resource]
-script = ExtResource("1_03ymn")
-name = "Test 1"
-quantity = 4

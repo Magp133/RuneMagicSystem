@@ -1,2 +1,4 @@
-TextureRect
+Area2D
 Label
+Panel
+TextureRect

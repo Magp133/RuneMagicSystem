@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://daiprsr4ade7x"]
+
+[ext_resource type="Script" path="res://Scenes/UI/slot.gd" id="1_rggby"]
+
+[node name="Slot" type="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+script = ExtResource("1_rggby")
+
+[node name="Symbol" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2

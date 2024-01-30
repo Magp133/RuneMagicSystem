@@ -6,3 +6,17 @@ res://Database/Resources/test_resource.gd
 res://Database/database.tscn
 res://Scenes/slot.tscn
 res://Scenes/slot.gd
+res://Scenes/inventory_default.gd
+res://Scenes/Tests/test_slot.tscn
+res://Scenes/Tests/test_slot.gd
+res://Scenes/Tests/test.tscn
+res://Scenes/UI/inventory_default.tscn
+res://Scenes/UI/slot.tscn
+res://Scenes/Spells/spell_caster.tscn
+res://Scenes/UI/inventory_default.gd
+res://Scenes/Components/hitbox_component.tscn
+res://Scenes/Components/hitbox_component.gd
+res://Scenes/Components/health_component.tscn
+res://Scenes/Components/health_component.gd
+res://Scenes/Components/attack_component.tscn
+res://Scenes/Components/attack_component.gd

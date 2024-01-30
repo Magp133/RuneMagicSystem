@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cufjhn5c4ktnv"]
+
+[node name="SpellCaster" type="Node2D"]

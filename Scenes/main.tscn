@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo52h7lo4ebl"]
 
-[ext_resource type="Script" path="res://Scenes/UI.gd" id="1_pakoh"]
-[ext_resource type="PackedScene" uid="uid://c4ayi2i5sdm4l" path="res://Scenes/inventory_default.tscn" id="2_eb8lg"]
+[ext_resource type="Script" path="res://Scenes/UI/UI.gd" id="1_pakoh"]
+[ext_resource type="PackedScene" uid="uid://c4ayi2i5sdm4l" path="res://Scenes/UI/inventory_default.tscn" id="2_eb8lg"]
 
 [node name="Main" type="Node2D"]
 
@@ -19,10 +19,11 @@ size_flags_horizontal = 2
 
 [node name="Button" type="Button" parent="UI/GridContainer/VBoxContainer"]
 layout_mode = 2
-text = "Menu 1"
+text = "Materials"
 
-[node name="InventoryDefault" parent="UI/GridContainer/VBoxContainer" instance=ExtResource("2_eb8lg")]
+[node name="MaterialInventory" parent="UI/GridContainer/VBoxContainer" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/GridContainer"]
