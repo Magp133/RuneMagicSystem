@@ -24,6 +24,7 @@ text = "Materials"
 
 [node name="MaterialInventory" parent="UI/GridContainer/VBoxContainer" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/GridContainer"]
@@ -35,6 +36,7 @@ text = "Runes"
 
 [node name="RuneInventory" parent="UI/GridContainer/VBoxContainer2" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/GridContainer"]
@@ -46,6 +48,7 @@ text = "Menu 3"
 
 [node name="InventoryDefault3" parent="UI/GridContainer/VBoxContainer3" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="UI/GridContainer"]
@@ -57,11 +60,10 @@ text = "Spell Crafting"
 
 [node name="SpellCrafter" parent="UI/GridContainer/VBoxContainer4" instance=ExtResource("3_cryky")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [connection signal="pressed" from="UI/GridContainer/VBoxContainer/Button" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/GridContainer/VBoxContainer2/Button2" to="UI" method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI/GridContainer/VBoxContainer3/Button3" to="UI" method="_on_button_3_pressed"]
 [connection signal="pressed" from="UI/GridContainer/VBoxContainer4/Button4" to="UI" method="_on_button_4_pressed"]
-
-[editable path="UI/GridContainer/VBoxContainer4/SpellCrafter"]

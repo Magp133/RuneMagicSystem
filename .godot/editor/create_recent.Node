@@ -1,5 +1,6 @@
-TextureRect
 Label
+Panel
+TextureRect
 GridContainer
 VBoxContainer
 HBoxContainer
@@ -10,4 +11,3 @@ CollisionShape2D
 CharacterBody2D
 CollisionPolygon2D
 Area2D
-Panel

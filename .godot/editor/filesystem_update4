@@ -6,4 +6,9 @@ res://Scenes/Spells/spell_caster.tscn
 res://Scenes/Spells/spell.tscn
 res://Scenes/Spells/spell_crafter.tscn
 res://Database/database.tscn
-res://Scenes/Spells/spell_crafter.gd
+res://Scenes/UI/material_slot.tscn
+res://Scenes/UI/material_slot.gd
+res://Scenes/UI/rune_slot.tscn
+res://Scenes/UI/rune_slot.gd
+res://Scenes/UI/crafting_slot.tscn
+res://Scenes/UI/crafting_slot.gd

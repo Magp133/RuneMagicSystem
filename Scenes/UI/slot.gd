@@ -37,7 +37,7 @@ func _get_drag_data(_at_position):
 	var texture_preview = TextureRect.new()
 	
 	
-	var data_dict: Dictionary = {}	
+	var data_dict: Dictionary = {}
 	data_dict["symbol_origin"] = %Symbol
 	data_dict["origin"] = self
 	data_dict["item"] = item
