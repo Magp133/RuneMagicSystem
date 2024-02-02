@@ -19,6 +19,11 @@ config/icon="res://Sprites/icon.svg"
 
 Database="*res://Database/database.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [gui]
 
 theme/custom="res://Themes/norsefont.tres"

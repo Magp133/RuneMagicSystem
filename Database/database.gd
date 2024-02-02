@@ -16,7 +16,7 @@ func _ready():
 	db.open_db()
 	
 	populate_dictionary(material_cache, "Materials")
-	#populate_dictionary(rune_base_cache, "Runes")
+	populate_dictionary(rune_base_cache, "Runes")
 	#populate_dictionary(saved_rune_cache, "SavedRunes")
 	
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo52h7lo4ebl"]
+[gd_scene load_steps=4 format=3 uid="uid://bo52h7lo4ebl"]
 
 [ext_resource type="Script" path="res://Scenes/UI/UI.gd" id="1_pakoh"]
 [ext_resource type="PackedScene" uid="uid://c4ayi2i5sdm4l" path="res://Scenes/UI/inventory_default.tscn" id="2_eb8lg"]
+[ext_resource type="PackedScene" uid="uid://dhdt8lhl0xkyq" path="res://Scenes/Spells/spell_crafter.tscn" id="3_cryky"]
 
 [node name="Main" type="Node2D"]
 
@@ -11,7 +12,7 @@ script = ExtResource("1_pakoh")
 [node name="GridContainer" type="GridContainer" parent="UI"]
 offset_right = 206.0
 offset_bottom = 31.0
-columns = 4
+columns = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/GridContainer"]
 layout_mode = 2
@@ -23,7 +24,6 @@ text = "Materials"
 
 [node name="MaterialInventory" parent="UI/GridContainer/VBoxContainer" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/GridContainer"]
@@ -31,11 +31,10 @@ layout_mode = 2
 
 [node name="Button2" type="Button" parent="UI/GridContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Menu 2"
+text = "Runes"
 
-[node name="InventoryDefault2" parent="UI/GridContainer/VBoxContainer2" instance=ExtResource("2_eb8lg")]
+[node name="RuneInventory" parent="UI/GridContainer/VBoxContainer2" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/GridContainer"]
@@ -47,9 +46,22 @@ text = "Menu 3"
 
 [node name="InventoryDefault3" parent="UI/GridContainer/VBoxContainer3" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
-visible = false
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="UI/GridContainer"]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="UI/GridContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Spell Crafting"
+
+[node name="SpellCrafter" parent="UI/GridContainer/VBoxContainer4" instance=ExtResource("3_cryky")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="pressed" from="UI/GridContainer/VBoxContainer/Button" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/GridContainer/VBoxContainer2/Button2" to="UI" method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI/GridContainer/VBoxContainer3/Button3" to="UI" method="_on_button_3_pressed"]
+[connection signal="pressed" from="UI/GridContainer/VBoxContainer4/Button4" to="UI" method="_on_button_4_pressed"]
+
+[editable path="UI/GridContainer/VBoxContainer4/SpellCrafter"]

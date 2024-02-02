@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhdt8lhl0xkyq"]
+
+[ext_resource type="Script" path="res://Scenes/Spells/spell_crafter.gd" id="1_ab86p"]
+[ext_resource type="PackedScene" uid="uid://daiprsr4ade7x" path="res://Scenes/UI/slot.tscn" id="1_cw1jq"]
+
+[node name="SpellCrafter" type="Control"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -558.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 414.0
+grow_horizontal = 0
+script = ExtResource("1_ab86p")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RuneDrawSpace" type="PanelContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RuneContainer" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+columns = 8
+
+[node name="BaseRune" parent="HBoxContainer/RuneContainer" instance=ExtResource("1_cw1jq")]
+unique_name_in_owner = true
+layout_mode = 2
