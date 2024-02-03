@@ -6,6 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var spell_crafter = get_node("/root/Main/UI/GC/V3/SpellCrafter")
 	#set the menu name to decide which cache is used.
 	var data: Dictionary
 	#item slot that will be determined based on 
@@ -27,4 +28,6 @@ func _ready():
 		for key in data:
 			var new_item_slot = item_slot.instantiate()
 			new_item_slot.set_item_data(data[key])
+			new_item_slot.remove_shape_from_craft.connect(spell_crafter.remove_shape)
 			%SlotContainer.add_child(new_item_slot, true)
+	

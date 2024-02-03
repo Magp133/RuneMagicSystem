@@ -9,48 +9,48 @@
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("1_pakoh")
 
-[node name="GridContainer" type="GridContainer" parent="UI"]
+[node name="GC" type="GridContainer" parent="UI"]
 offset_right = 206.0
 offset_bottom = 31.0
 columns = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/GridContainer"]
+[node name="V1" type="VBoxContainer" parent="UI/GC"]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Button" type="Button" parent="UI/GridContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="UI/GC/V1"]
 layout_mode = 2
 text = "Materials"
 
-[node name="MaterialInventory" parent="UI/GridContainer/VBoxContainer" instance=ExtResource("2_eb8lg")]
+[node name="MaterialInventory" parent="UI/GC/V1" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/GridContainer"]
+[node name="V2" type="VBoxContainer" parent="UI/GC"]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="UI/GridContainer/VBoxContainer2"]
+[node name="Button2" type="Button" parent="UI/GC/V2"]
 layout_mode = 2
 text = "Runes"
 
-[node name="RuneInventory" parent="UI/GridContainer/VBoxContainer2" instance=ExtResource("2_eb8lg")]
+[node name="RuneInventory" parent="UI/GC/V2" instance=ExtResource("2_eb8lg")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="UI/GridContainer"]
+[node name="V3" type="VBoxContainer" parent="UI/GC"]
 layout_mode = 2
 
-[node name="Button4" type="Button" parent="UI/GridContainer/VBoxContainer4"]
+[node name="Button4" type="Button" parent="UI/GC/V3"]
 layout_mode = 2
 text = "Spell Crafting"
 
-[node name="SpellCrafter" parent="UI/GridContainer/VBoxContainer4" instance=ExtResource("3_cryky")]
+[node name="SpellCrafter" parent="UI/GC/V3" instance=ExtResource("3_cryky")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="UI/GridContainer/VBoxContainer/Button" to="UI" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/GridContainer/VBoxContainer2/Button2" to="UI" method="_on_button_2_pressed"]
-[connection signal="pressed" from="UI/GridContainer/VBoxContainer4/Button4" to="UI" method="_on_button_4_pressed"]
+[connection signal="pressed" from="UI/GC/V1/Button" to="UI" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/GC/V2/Button2" to="UI" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/GC/V3/Button4" to="UI" method="_on_button_4_pressed"]

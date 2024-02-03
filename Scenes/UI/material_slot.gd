@@ -1,6 +1,8 @@
 extends TextureRect
 class_name MaterialSlot
 
+signal remove_shape_from_craft
+
 #gets the parent of the slot.
 @onready var parent = get_parent().get_parent().get_parent()
 #the item that is being stored.

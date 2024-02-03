@@ -9,3 +9,4 @@ res://Scenes/UI/inventory_default.gd
 res://Scenes/Spells/spell_crafter.gd
 res://Scenes/UI/crafting_slot.gd
 res://Scenes/UI/rune_slot.gd
+res://Scenes/UI/material_slot.gd

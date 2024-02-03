@@ -1,8 +1,12 @@
 extends TextureRect
 class_name RuneSlot
 
+#signals
+signal remove_shape_from_craft
+
 #gets the parent of the slot.
 @onready var parent = get_parent().get_parent().get_parent()
+
 #the item that is being stored.
 var item: Dictionary = {}
 
@@ -34,9 +38,10 @@ func _get_drag_data(_at_position):
 	
 
 func _can_drop_data(_at_position, data):
-	var target = get_node(".")
-	if data["item"]["Type"] == 'rune' and !target.texture:
-		return true
+	if data:
+		var target = get_node(".")
+		if data["item"]["Type"] == 'rune' and !target.texture:
+			return true
 	
 func _drop_data(_at_position, data):
 	#set the item
@@ -47,5 +52,9 @@ func _drop_data(_at_position, data):
 	texture = data["texture"]
 	#remove origin texture
 	data["origin"].texture = null
+	
+	
+	if data["origin"] is CraftingSlot:
+		remove_shape_from_craft.emit(data["origin"])
 	
 	
