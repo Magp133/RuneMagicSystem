@@ -3,11 +3,17 @@
 [ext_resource type="Script" path="res://Scenes/UI/rune_slot.gd" id="1_xeokh"]
 
 [node name="RuneSlot" type="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_xeokh")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

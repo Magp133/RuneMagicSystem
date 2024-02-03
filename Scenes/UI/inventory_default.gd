@@ -1,31 +1,30 @@
 extends Control
 
 @onready var menu_name = get_name()
-@onready var grid_container = %GridContainer
-#var item_slot = preload("res://Scenes/slot.tscn")
-@export var item_slot: PackedScene
+@export var material_item_slot: PackedScene
+@export var rune_item_slot: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#set the menu name to decide which cache is used.
 	var data: Dictionary
-	var item_key: String
+	#item slot that will be determined based on 
+	var item_slot
+	
 	if menu_name == "MaterialInventory":
 		data = Database.material_cache
-		item_key = "material"
+		item_slot = material_item_slot
+		
 	elif menu_name == "RuneInventory":
 		data = Database.rune_base_cache
-		item_key = "rune"
-	elif menu_name == "SigilInventory":
-		data = Database.sigil_cache
-	else:
-		for i in range(5):
-			var new_item_slot = item_slot.instantiate()
-			grid_container.add_child(new_item_slot)
-		return
+		item_slot = rune_item_slot
+		
+	elif menu_name == "SpellInventory":
+		data = Database.saved_rune_cache
 
-	#input the data into the slot and add as a child to grid_container
-	for key in data:
-		var new_item_slot = item_slot.instantiate()
-		new_item_slot.set_item_data(data[key], item_key)
-		grid_container.add_child(new_item_slot)
+	if item_slot:
+		#input the data into the slot and add as a child to grid_container
+		for key in data:
+			var new_item_slot = item_slot.instantiate()
+			new_item_slot.set_item_data(data[key])
+			%SlotContainer.add_child(new_item_slot, true)

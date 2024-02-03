@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhdt8lhl0xkyq"]
 
 [ext_resource type="Script" path="res://Scenes/Spells/spell_crafter.gd" id="1_ab86p"]
-[ext_resource type="PackedScene" uid="uid://daiprsr4ade7x" path="res://Scenes/UI/slot.tscn" id="1_cw1jq"]
+[ext_resource type="PackedScene" uid="uid://j6we0ppf3av1" path="res://Scenes/UI/crafting_slot.tscn" id="2_swo5v"]
 
 [node name="SpellCrafter" type="Control"]
 custom_minimum_size = Vector2(500, 400)
@@ -34,6 +34,6 @@ size_flags_vertical = 3
 layout_mode = 2
 columns = 8
 
-[node name="BaseRune" parent="HBoxContainer/RuneContainer" instance=ExtResource("1_cw1jq")]
+[node name="BaseCraftSlot" parent="HBoxContainer/RuneContainer" instance=ExtResource("2_swo5v")]
 unique_name_in_owner = true
 layout_mode = 2

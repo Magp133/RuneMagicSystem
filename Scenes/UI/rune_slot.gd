@@ -4,14 +4,14 @@ class_name RuneSlot
 #gets the parent of the slot.
 @onready var parent = get_parent().get_parent().get_parent()
 #the item that is being stored.
-var item: Dictionary
+var item: Dictionary = {}
 
 func set_item_data(input_item: Dictionary):
 	#input item is a rune data item
 	item = input_item
 	texture = load("res://Textures/" + item["Name"] + ".png")
 	
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	#the preview to display the materials symbol
 	var slot_preview = TextureRect.new()
 	
@@ -33,19 +33,10 @@ func _get_drag_data(at_position):
 	return data
 	
 
-func _can_drop_data(_at_position, _data):
+func _can_drop_data(_at_position, data):
 	var target = get_node(".")
-	if target is CraftingSlot:
-		#make sure that only the correct items are stored within the crafting slot.
-		if target.type != "material" or "base" and !target.texture:
-			return true
-		else:
-			return false
-	if target is RuneSlot:
-		if !target.texture:
-			return true
-		else:
-			return false
+	if data["item"]["Type"] == 'rune' and !target.texture:
+		return true
 	
 func _drop_data(_at_position, data):
 	#set the item

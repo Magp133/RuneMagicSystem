@@ -6,7 +6,6 @@ var db_name = "res://Database/MainDataBase"
 #different inventory and object databases.
 var material_cache: Dictionary = {}
 var rune_base_cache: Dictionary = {}
-var sigil_cache: Dictionary = {}
 var saved_rune_cache: Dictionary = {}
 var recipe_cache: Dictionary = {}
 

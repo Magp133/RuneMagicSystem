@@ -11,44 +11,32 @@ func set_item_data(input_item: Dictionary):
 	%Symbol.text = item["Symbol"]
 	
 func _get_drag_data(_at_position):
-	#the preview to display the materials symbol
-	var slot_preview = Label.new()
-	
-	#store all of the data to trasfer it to another slot.
-	var data: Dictionary = {}
-	data["origin"] = self
-	data["item"] = item
-	
-	#preview showed
-	slot_preview.text = item["Symbol"]
-	slot_preview.expand_mode = 1
-	slot_preview.size = Vector2(30,30)
-	
-	var preview = Control.new()
-	preview.add_child(slot_preview)
-	
-	set_drag_preview(preview)
-	
-	return data
+	if item.size() > 0:
+		#the preview to display the materials symbol
+		var slot_preview = Label.new()
+		
+		#store all of the data to trasfer it to another slot.
+		var data: Dictionary = {}
+		data["origin"] = self
+		data["item"] = item
+		
+		#preview showed
+		slot_preview.text = item["Symbol"]
+		slot_preview.size = Vector2(30,30)
+		
+		var preview = Control.new()
+		preview.add_child(slot_preview)
+		
+		set_drag_preview(preview)
+		
+		return data
 	
 
-func _can_drop_data(_at_position, _data):
-	#get the node being pointed to.
-	var target = get_node(".")
-	var target_symbol = target.get_node("Symbol")
-	if target is CraftingSlot:
-		#make sure that only the correct items are stored within the crafting slot.
-		if target.type != "rune" or "base" and !target.texture:
-			return true
-		else:
-			return false
-			
-	elif target is MaterialSlot:
-		#check texture is empty. if so no item stored.
-		if !target_symbol.text:
-			return true
-		else:
-			return false
+func _can_drop_data(_at_position, data):
+	var target_symbol = get_node("Symbol")
+	if data["item"]["Type"] == "material" and !target_symbol.text:
+		return true
+	
 	
 func _drop_data(_at_position, data):
 	#set the item

@@ -21,16 +21,12 @@ func _process(_delta):
 		else:
 			parent.shape_names["Base"] = null
 
-func set_item_data(input_item: Dictionary, key: String):
+func set_item_data(input_item: Dictionary):
 	"""Take a dictionary database of an item that is being stored within the slot.
 	   The item being stored is of different types; material or a rune."""
 	item = input_item
-	if key == "material":
-		%Symbol.text = item["Symbol"]
-	if key == "rune":
-		var rune_texture = TextureRect.new()
-		rune_texture.texture = load("res://Textures/" + item["Name"] + ".png")
-		texture = rune_texture.texture
+	%Symbol.text = item["Symbol"]
+
 
 func _get_drag_data(_at_position):
 	#get preview of texture to see it while dragging.
@@ -68,9 +64,9 @@ func _can_drop_data(_at_position, _data):
 
 func _drop_data(_at_position, data):
 	
-	%Symbol.text = data["text"]
+	#%Symbol.text = data["text"]
 	data["origin"].texture = texture
 	texture = data["texture"]
-	data["symbol_origin"].text = ""
+	#data["symbol_origin"].text = ""
 	item = data["item"]
-	data["origin"].item = null
+	data["origin"].item = {}
