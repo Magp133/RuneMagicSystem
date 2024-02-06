@@ -16,26 +16,27 @@ func set_item_data(input_item: Dictionary):
 	texture = load("res://Textures/" + item["Name"] + ".png")
 	
 func _get_drag_data(_at_position):
-	#the preview to display the materials symbol
-	var slot_preview = TextureRect.new()
-	
-	#store all of the data to trasfer it to another slot.
-	var data: Dictionary = {}
-	data["origin"] = self
-	data["item"] = item
-	data["texture"] = texture
-	
-	slot_preview.texture = texture
-	slot_preview.expand_mode = 1
-	slot_preview.size = Vector2(30,30)
-	
-	var preview = Control.new()
-	preview.add_child(slot_preview)
-	
-	set_drag_preview(preview)
-	
-	return data
-	
+	if item.size() > 0:
+		#the preview to display the materials symbol
+		var slot_preview = TextureRect.new()
+		
+		#store all of the data to trasfer it to another slot.
+		var data: Dictionary = {}
+		data["origin"] = self
+		data["item"] = item
+		data["texture"] = texture
+		
+		slot_preview.texture = texture
+		slot_preview.expand_mode = 1
+		slot_preview.size = Vector2(30,30)
+		
+		var preview = Control.new()
+		preview.add_child(slot_preview)
+		
+		set_drag_preview(preview)
+		
+		return data
+		
 
 func _can_drop_data(_at_position, data):
 	if data:
