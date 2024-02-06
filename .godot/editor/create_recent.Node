@@ -1,9 +1,10 @@
+Control
+GridContainer
 CollisionShape2D
 Area2D
 Label
 Panel
 TextureRect
-GridContainer
 VBoxContainer
 HBoxContainer
 MarginContainer

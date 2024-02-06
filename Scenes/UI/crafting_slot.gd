@@ -117,7 +117,7 @@ func _drop_data(_at_position, data):
 		texture = data["texture"]
 		#remove origin texture
 		#data["origin"].texture = null
+		
 	#emit the draw signal to draw the shape held within the slot
-	draw_shape.emit(self, item["Name"])
-
+	draw_shape.emit(self, item)
 

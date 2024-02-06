@@ -4,3 +4,4 @@ res://Scenes/main.tscn
 res://Scenes/Spells/spell_crafter.tscn
 res://Scenes/UI/inventory_default.tscn
 res://Scenes/UI/crafting_slot.gd
+res://Scenes/UI/material_slot.gd
