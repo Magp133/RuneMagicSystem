@@ -8,7 +8,7 @@ extends Control
 
 #rune parameters
 @onready var shape_names: Dictionary = {}
-@onready var material_names: Array = []
+@onready var material_names: Dictionary = {}
 @onready var base_position: Vector2 = Vector2(rune_draw_space.size.x / 2, rune_draw_space.size.y / 2)
 @onready var base_craft_slot = %BaseCraftSlot
 
@@ -29,20 +29,25 @@ var start_angle: float = -TAU / 4
 #circle
 var number_of_points: int = 64
 var number_of_circles: int = 0
+
 #triangle
 var triangle_angle = TAU / 3
 var number_of_triangles: int = 0
+
 #square
 var square_angle = TAU / 4
 var number_of_squares: int = 0
+
 #pentagon
 var pentagon_angle = TAU / 5
 var number_of_pentagons: int = 0
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	base_craft_slot.slot_type = "base"
+	base_craft_slot.grid_position = -1
 	base_craft_slot.draw_shape.connect(handle_craft_slots)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,72 +60,39 @@ Drawing Logic
 """
 func _draw():
 	count_shapes()
-	if base_craft_slot.item.size() > 0:
-		#draw the base shape
-		var keys = shape_names.keys()
-		var base_rune = keys[0]
-		var base
-		var colour: Color = Color("Black")
-		
-		#assign the base 
-		if shape_names[base_rune][0] == "Circle":
-			base = "circle"
-			draw_rune_circle("base", colour)
-
-		if shape_names[base_rune][0] == "Triangle":
-			base = "triangle"
-			draw_triangle("base", start_angle, colour)
-
-		if shape_names[base_rune][0] == "Square":
-			base = "square"
-			draw_square("base", start_angle, colour)
-			
-		if shape_names[base_rune][0] == "Pentagon":
-			base = "pentagon"
-			draw_pentagon("base", start_angle, colour)
-		
-		
-		#draw the auxillary shapes
-		for i in range(number_of_circles):
-			colour = Color("Black")
-			if base == "circle":
-				base = ""
+	
+	if shape_names.size() > 0:
+		var colour = Color("Black")
+		var triangles: int = 0
+		var squares: int = 0
+		var pentagons: int = 0
+	
+		for key in shape_names:
+			if key.slot_type == "base":
+				if shape_names[key]["Name"] == "Circle":
+					draw_rune_circle("base", colour)
+				elif shape_names[key]["Name"] == "Triangle":
+					draw_triangle("base", start_angle + triangle_angle, colour)
+				elif shape_names[key]["Name"] == "Square":
+					draw_square("base", start_angle + square_angle, colour)
+				elif shape_names[key]["Name"] == "Pentagon":
+					draw_pentagon("base", start_angle + pentagon_angle, colour)
 			else:
-				if material_names.size() > 0 and material_names.size() >= 1:
-					colour = Color(material_names[i - 1]["Colour"])
-				draw_rune_circle("aux", colour)
-			
-			
-		for i in range(number_of_triangles):
-			colour = Color("Black")
-			if base == "triangle":
-				base = ""
-			else:
-				if material_names.size() > 0 and material_names.size() >= 1:
-					colour = Color(material_names[i - 1]["Colour"])
-				draw_triangle("aux", start_angle + (triangle_angle * i / number_of_triangles), colour)
-			
-
-		for i in range(number_of_squares):
-			colour = Color("Black")
-			if base == "square":
-				base = ""
-			else:
-				if material_names.size() > 0 and material_names.size() >= 1:
-					colour = Color(material_names[i - 1]["Colour"])
-				draw_square("aux", start_angle + (square_angle * i / number_of_squares), colour)
-			
-
-		for i in range(number_of_pentagons):
-			colour = Color("Black")
-			if base == "pentagon":
-				base = ""
-			else:
-				if material_names.size() > 0 and material_names.size() >= 1:
-					colour = Color(material_names[i - 1]["Colour"])
-				draw_pentagon("aux", start_angle + (pentagon_angle * i / number_of_pentagons), colour)
-			
-
+				if shape_names[key]["Name"] == "Circle":
+					if shape_names[key].has("Material"):
+						draw_rune_circle("aux", shape_names[key]["Material"]["Colour"])
+					else:
+						draw_rune_circle("aux", colour)
+						
+				elif shape_names[key]["Name"] == "Triangle":
+					draw_triangle("base", start_angle + (triangle_angle * triangles / number_of_triangles), shape_names[key]["Material"]["Colour"])
+					triangles += 1
+				elif shape_names[key]["Name"] == "Square":
+					draw_square("base", start_angle + (square_angle * squares / number_of_squares), shape_names[key]["Material"]["Colour"])
+					squares += 1
+				elif shape_names[key]["Name"] == "Pentagon":
+					draw_pentagon("base", start_angle + (pentagon_angle * pentagons / number_of_pentagons), shape_names[key]["Material"]["Colour"])
+					pentagons += 1
 
 """Draw a circle taking the rune type and changing the colour and size"""
 func draw_rune_circle(rune_type: String, colour: Color):
@@ -144,7 +116,6 @@ func draw_triangle(rune_type: String, angle: float, colour: Color):
 	if rune_type == "base":
 		rune_width = base_rune_width
 		rune_size = base_rune_size
-
 	else:
 		rune_width = aux_rune_width
 		rune_size = aux_rune_size
@@ -207,17 +178,20 @@ func handle_craft_slots(craft_slot, item: Dictionary):
 	
 	if item["Type"] == "rune":
 
-		shape_names[craft_slot] = [item["Name"], craft_slot.slot_type]
+		shape_names[craft_slot] = item
 		#check if craft_slot is a base
 		#if so add more slots
 		if craft_slot.slot_type == "base":
 			add_craft_slots()
 			
 	if item["Type"] == "material":
-
-		material_names.append(item)
+		for key in shape_names:
+			if key.grid_position == craft_slot.grid_position:
+				shape_names[key]["Material"] = item
+				material_names[craft_slot] = item
+				material_names[craft_slot]["Rune"] = key
 	
-
+	
 	
 func remove_shape(craft_slot):
 	#connects to the material and rune slots
@@ -237,10 +211,12 @@ func add_craft_slots():
 		var new_craft_slot = crafting_slot.instantiate()
 		new_craft_slot.draw_shape.connect(handle_craft_slots)
 		new_craft_slot.slot_type = "aux"
+		new_craft_slot.grid_position = i
 		rune_container.add_child(new_craft_slot, true)
 		
 		var new_material_slot = crafting_slot.instantiate()
 		new_material_slot.slot_type = "material"
+		new_material_slot.grid_position = i
 		new_material_slot.draw_shape.connect(handle_craft_slots)
 		material_container.add_child(new_material_slot, true)
 		
@@ -258,6 +234,7 @@ func remove_craft_slots():
 	
 	for child in children:
 		child.queue_free()
+		
 
 func count_shapes():
 	number_of_circles = 0
@@ -266,15 +243,16 @@ func count_shapes():
 	number_of_pentagons = 0
 	
 	for shape in shape_names:
-		if shape_names[shape][0] == "Circle":
+		if shape_names[shape]["Name"] == "Circle":
 			number_of_circles += 1
 		
-		if shape_names[shape][0] == "Triangle":
+		if shape_names[shape]["Name"] == "Triangle":
 			number_of_triangles += 1
 
-		if shape_names[shape][0] == "Square":
+		if shape_names[shape]["Name"] == "Square":
 			number_of_squares += 1
 
-		if shape_names[shape][0] == "Pentagon":
+		if shape_names[shape]["Name"] == "Pentagon":
 			number_of_pentagons += 1
+
 

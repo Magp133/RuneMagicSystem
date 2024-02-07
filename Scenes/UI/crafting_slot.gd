@@ -5,6 +5,7 @@ class_name CraftingSlot
 @onready var rune_container = get_parent()
 #the item that is being stored.
 var item: Dictionary = {}
+var grid_position: int = -1
 
 
 #type of crafting slot the slot is.
@@ -29,6 +30,7 @@ func _process(_delta):
 		texture = null
 		%Symbol.text = ""
 		spell_crafter.shape_names.erase(self)
+		spell_crafter.material_names.erase(self)
 		if slot_type == "base":
 			spell_crafter.shape_names = {}
 			spell_crafter.remove_shape(self)
