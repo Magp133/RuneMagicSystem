@@ -29,11 +29,8 @@ func _process(_delta):
 		item = {}
 		texture = null
 		%Symbol.text = ""
-		spell_crafter.shape_names.erase(self)
-		spell_crafter.material_names.erase(self)
-		if slot_type == "base":
-			spell_crafter.shape_names = {}
-			spell_crafter.remove_shape(self)
+		spell_crafter.remove_shape(grid_position, self)
+
 
 
 #dont think ill need this as it wont be initialised with item data
