@@ -12,16 +12,16 @@ anchor_right = 1.0
 offset_left = -558.0
 offset_top = 40.0
 offset_right = -40.0
-offset_bottom = 414.0
+offset_bottom = 440.0
 grow_horizontal = 0
 script = ExtResource("1_ab86p")
 crafting_slot = ExtResource("2_swo5v")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -30,6 +30,38 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="SpellName" type="TextEdit" parent="HBoxContainer/RuneDrawSpace"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+placeholder_text = "Spell Name"
+
+[node name="Save" type="Button" parent="HBoxContainer/RuneDrawSpace"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Save
+"
+alignment = 2
+
+[node name="Warning" type="Label" parent="HBoxContainer/RuneDrawSpace/Save"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -145.0
+offset_top = -31.0
+offset_right = -1.0
+offset_bottom = 1.0
+theme_override_font_sizes/font_size = 20
+text = "Please enter Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RuneContainer" type="GridContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -46,3 +78,15 @@ columns = 8
 [node name="Spacer" type="Control" parent="HBoxContainer/MaterialContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+
+[node name="Test" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 135.0
+offset_top = 337.0
+offset_right = 175.0
+offset_bottom = 377.0
+expand_mode = 1
+
+[connection signal="pressed" from="HBoxContainer/RuneDrawSpace/Save" to="." method="_on_save_pressed"]

@@ -1,6 +1,9 @@
 res://Scenes/Spells/spell_crafter.tscn
 res://Scenes/Spells/spell_crafter.gd
 res://Scenes/main.tscn
-res://Scenes/UI/crafting_slot.tscn
+res://Scenes/UI/hot_bar.tscn
 res://Scenes/UI/inventory_default.tscn
-res://Scenes/UI/crafting_slot.gd
+res://Scenes/UI/slot.tscn
+res://Scenes/UI/spell_slot.tscn
+res://Scenes/UI/inventory_default.gd
+res://Scenes/UI/UI.gd

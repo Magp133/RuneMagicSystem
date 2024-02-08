@@ -5,6 +5,7 @@ extends Control
 @onready var material_container = $HBoxContainer/MaterialContainer
 @export var crafting_slot: PackedScene
 @onready var spacer = $HBoxContainer/MaterialContainer/Spacer
+@onready var spell_inventory = get_node("/root/Main/UI/GC/V3/SpellInventory")
 
 #rune parameters
 @onready var rune_storage: Dictionary = {}
@@ -55,7 +56,9 @@ func _process(_delta):
 
 
 """
+################################################################################
 Drawing Logic
+################################################################################
 """
 func _draw():
 	var circles: int = 0
@@ -173,7 +176,9 @@ func draw_pentagon(rune_type: String, angle: float, colour: Color):
 	draw_polyline(pentagon_points, colour, rune_width, true)
 
 """
+################################################################################
 Craft slot logic
+################################################################################
 """
 
 func handle_craft_slots(craft_slot, item: Dictionary):
@@ -196,7 +201,6 @@ func handle_craft_slots(craft_slot, item: Dictionary):
 			rune_storage[ID] = {"Rune" : [item["Name"], craft_slot.slot_type]}
 	
 	count_shapes()
-	print(rune_storage)
 	
 	
 func remove_shape(grid_position: int, craft_slot):
@@ -269,3 +273,29 @@ func count_shapes():
 			if rune_storage[shape]["Rune"][0] == "Pentagon":
 				number_of_pentagons += 1
 
+"""
+################################################################################
+Spell Logic
+################################################################################
+"""
+
+func _on_save_pressed():
+	save_spell()
+
+func save_spell():
+	if !%SpellName.text:
+		%Warning.show()
+		return
+	
+	var spell: Dictionary = {}
+	
+	if rune_storage.has(-1):
+		# Retrieve the captured image.
+		await get_tree().process_frame
+		var img = get_viewport().get_texture().get_image()
+		img.save_png("test_img.png")
+		
+		spell["Name"] = %SpellName.text
+		spell["Base"] = rune_storage[-1]["Rune"][0]
+		Database.saved_rune_cache[spell["Name"]] = spell
+		spell_inventory.refresh()
