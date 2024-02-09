@@ -19,4 +19,3 @@ func _on_hitbox_component_area_entered(area):
 	attack.damage = power
 	attack.attack_position = global_position
 	area.damage(attack)
-	print("bam")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4ayi2i5sdm4l"]
 
 [ext_resource type="Script" path="res://Scenes/UI/inventory_default.gd" id="1_tbb27"]
-[ext_resource type="PackedScene" uid="uid://dtqtakpwtcsij" path="res://Scenes/UI/material_slot.tscn" id="2_vw1oi"]
-[ext_resource type="PackedScene" uid="uid://54a7oqm3ogw4" path="res://Scenes/UI/rune_slot.tscn" id="3_qy0h4"]
-[ext_resource type="PackedScene" uid="uid://b4p1e2ffl1kvl" path="res://Scenes/UI/spell_slot.tscn" id="4_hyhf3"]
+[ext_resource type="PackedScene" uid="uid://dtqtakpwtcsij" path="res://Scenes/UI/Slots/material_slot.tscn" id="2_4h7pd"]
+[ext_resource type="PackedScene" uid="uid://54a7oqm3ogw4" path="res://Scenes/UI/Slots/rune_slot.tscn" id="3_yac0n"]
+[ext_resource type="PackedScene" uid="uid://b4p1e2ffl1kvl" path="res://Scenes/UI/Slots/spell_slot.tscn" id="4_vcbgp"]
 
 [node name="InventoryDefault" type="Control"]
 custom_minimum_size = Vector2(172, 2.08165e-12)
@@ -12,9 +12,9 @@ anchors_preset = 0
 offset_right = 136.0
 offset_bottom = 90.0
 script = ExtResource("1_tbb27")
-material_item_slot = ExtResource("2_vw1oi")
-rune_item_slot = ExtResource("3_qy0h4")
-spell_item_slot = ExtResource("4_hyhf3")
+material_item_slot = ExtResource("2_4h7pd")
+rune_item_slot = ExtResource("3_yac0n")
+spell_item_slot = ExtResource("4_vcbgp")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0

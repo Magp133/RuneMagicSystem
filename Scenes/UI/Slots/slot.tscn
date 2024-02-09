@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://daiprsr4ade7x"]
 
-[ext_resource type="Script" path="res://Scenes/UI/slot.gd" id="1_rggby"]
+[ext_resource type="Script" path="res://Scenes/UI/Slots/slot.gd" id="1_rggby"]
 [ext_resource type="FontFile" uid="uid://c0bsjedxh24t" path="res://Fonts/norse-font/Norse-KaWl.otf" id="2_kxsqh"]
 
 [node name="Slot" type="TextureRect"]

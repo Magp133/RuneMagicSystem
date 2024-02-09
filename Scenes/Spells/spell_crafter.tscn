@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhdt8lhl0xkyq"]
+[gd_scene load_steps=4 format=3 uid="uid://dhdt8lhl0xkyq"]
 
 [ext_resource type="Script" path="res://Scenes/Spells/spell_crafter.gd" id="1_ab86p"]
-[ext_resource type="PackedScene" uid="uid://j6we0ppf3av1" path="res://Scenes/UI/crafting_slot.tscn" id="2_swo5v"]
+[ext_resource type="PackedScene" uid="uid://j6we0ppf3av1" path="res://Scenes/UI/Slots/crafting_slot.tscn" id="2_h6nyg"]
+[ext_resource type="PackedScene" uid="uid://bj0p3vps47a33" path="res://Scenes/Spells/draw_space.tscn" id="3_410t1"]
 
 [node name="SpellCrafter" type="Control"]
 custom_minimum_size = Vector2(500, 400)
@@ -15,9 +16,9 @@ offset_right = -40.0
 offset_bottom = 440.0
 grow_horizontal = 0
 script = ExtResource("1_ab86p")
-crafting_slot = ExtResource("2_swo5v")
+crafting_slot = ExtResource("2_h6nyg")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="."]
+[node name="HB" type="VBoxContainer" parent="."]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,13 +26,19 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RuneDrawSpace" type="PanelContainer" parent="HBoxContainer"]
+[node name="RuneDrawSpace" type="PanelContainer" parent="HB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SpellName" type="TextEdit" parent="HBoxContainer/RuneDrawSpace"]
+[node name="DrawSpace" parent="HB/RuneDrawSpace" instance=ExtResource("3_410t1")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SpellName" type="TextEdit" parent="HB/RuneDrawSpace"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
@@ -39,7 +46,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 placeholder_text = "Spell Name"
 
-[node name="Save" type="Button" parent="HBoxContainer/RuneDrawSpace"]
+[node name="Save" type="Button" parent="HB/RuneDrawSpace"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -47,7 +54,7 @@ text = "Save
 "
 alignment = 2
 
-[node name="Warning" type="Label" parent="HBoxContainer/RuneDrawSpace/Save"]
+[node name="Warning" type="Label" parent="HB/RuneDrawSpace/Save"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -63,30 +70,20 @@ text = "Please enter Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RuneContainer" type="GridContainer" parent="HBoxContainer"]
+[node name="RuneContainer" type="GridContainer" parent="HB"]
 layout_mode = 2
 columns = 8
 
-[node name="BaseCraftSlot" parent="HBoxContainer/RuneContainer" instance=ExtResource("2_swo5v")]
+[node name="BaseCraftSlot" parent="HB/RuneContainer" instance=ExtResource("2_h6nyg")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MaterialContainer" type="GridContainer" parent="HBoxContainer"]
+[node name="MaterialContainer" type="GridContainer" parent="HB"]
 layout_mode = 2
 columns = 8
 
-[node name="Spacer" type="Control" parent="HBoxContainer/MaterialContainer"]
+[node name="Spacer" type="Control" parent="HB/MaterialContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
-[node name="Test" type="TextureRect" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 0
-offset_left = 135.0
-offset_top = 337.0
-offset_right = 175.0
-offset_bottom = 377.0
-expand_mode = 1
-
-[connection signal="pressed" from="HBoxContainer/RuneDrawSpace/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="HB/RuneDrawSpace/Save" to="." method="_on_save_pressed"]

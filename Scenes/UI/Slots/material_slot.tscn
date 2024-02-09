@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dtqtakpwtcsij"]
 
-[ext_resource type="Script" path="res://Scenes/UI/material_slot.gd" id="1_vjxed"]
+[ext_resource type="Script" path="res://Scenes/UI/Slots/material_slot.gd" id="1_vjxed"]
 
 [node name="MaterialSlot" type="TextureRect"]
 custom_minimum_size = Vector2(40, 40)

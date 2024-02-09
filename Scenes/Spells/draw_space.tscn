@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj0p3vps47a33"]
+
+[ext_resource type="Script" path="res://Scenes/Spells/draw_space.gd" id="1_1ipot"]
+
+[node name="DrawSpace" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SVC" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SV" type="SubViewport" parent="SVC"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(250, 250)
+render_target_update_mode = 4
+
+[node name="Draw" type="Node2D" parent="SVC/SV"]
+script = ExtResource("1_1ipot")

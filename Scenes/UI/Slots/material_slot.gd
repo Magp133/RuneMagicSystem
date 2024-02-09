@@ -36,10 +36,10 @@ func _get_drag_data(_at_position):
 
 func _can_drop_data(_at_position, data):
 	var target_symbol = get_node("Symbol")
-	if data["item"]["Type"] == "material" and !target_symbol.text:
-		return true
-	
-	
+	if data:
+		if data["item"]["Type"] == "material" and !target_symbol.text:
+			return true
+		
 func _drop_data(_at_position, data):
 	#set the item
 	item = data["item"]

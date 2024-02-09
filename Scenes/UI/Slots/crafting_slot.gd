@@ -32,16 +32,6 @@ func _process(_delta):
 		spell_crafter.remove_shape(grid_position, self)
 
 
-
-#dont think ill need this as it wont be initialised with item data
-#func set_item_data(input_item: Dictionary):
-	##input item is a any data item
-	#item = input_item
-	#if item["Type"] == "material":
-		#%Symbol.text = item["Symbol"]
-	#elif item["Type"] == "rune":
-		#texture = load("res://Textures/" + item["Name"] + ".png")
-	
 func _get_drag_data(_at_position):
 	if item.size() > 0:
 		#check if the aux slots have an item. 
@@ -88,14 +78,14 @@ func _get_drag_data(_at_position):
 func _can_drop_data(_at_position, data):
 	var target = get_node(".")
 	var target_symbol = get_node("Symbol")
-
-	if slot_type == "base" and data["item"]["Type"] == "rune" and !target.texture:
-		return true
-	elif slot_type == "aux" and data["item"]["Type"] == "rune" and !target.texture:
-		return true
-	elif slot_type == "material" and data["item"]["Type"] == "material" and !target_symbol.text:
-		return true
-	
+	if data:
+		if slot_type == "base" and data["item"]["Type"] == "rune" and !target.texture:
+			return true
+		elif slot_type == "aux" and data["item"]["Type"] == "rune" and !target.texture:
+			return true
+		elif slot_type == "material" and data["item"]["Type"] == "material" and !target_symbol.text:
+			return true
+		
 func _drop_data(_at_position, data):
 	if data["item"]["Type"] == "material":
 		#set the item
