@@ -1,6 +1,8 @@
 class_name SpellSlot
 extends TextureRect
 
+var player: Player
+
 
 #signals
 signal remove_shape_from_craft
@@ -19,16 +21,16 @@ func _process(_delta):
 	
 	distance = sqrt((global_position.x - mouse_position.x + size.x / 2) ** 2 + (global_position.y - mouse_position.y + size.y / 2) ** 2)
 	
+	
 	if event and distance < 25:
 		item = {}
 		texture = null
 		%Symbol.text = ""
+		if get_parent().get_name() == "HotBarContainer":
+			player.spells.erase(key)
 		
 	if key:
 		%Symbol.text = key
-	
-		if Input.is_action_just_released(key) and item.size() > 0:
-			pass
 
 func set_item_data(input_item: Dictionary):
 	#input item is a rune data item
@@ -69,9 +71,13 @@ func _drop_data(_at_position, data):
 	item = data["item"]
 	#set the texture
 	texture = data["item"]["Texture"]
+	player.spells[key] = item
 	
 	
 	if data["origin"] is CraftingSlot:
 		remove_shape_from_craft.emit(data["origin"])
+	
+
+
 	
 	

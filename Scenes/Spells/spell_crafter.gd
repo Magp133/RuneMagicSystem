@@ -143,13 +143,13 @@ func save_spell():
 		spell["Type"] = "spell"
 		spell["Base"] = rune_storage[-1]["Rune"][0]
 		
-		var item: Dictionary = {}
-		item["Circles"] = number_of_circles
-		item["Triangles"] = number_of_triangles
-		item["Squares"] = number_of_squares
-		item["Pentagons"] = number_of_pentagons
+		var shapes: Dictionary = {}
+		shapes["Circles"] = number_of_circles
+		shapes["Triangles"] = number_of_triangles
+		shapes["Squares"] = number_of_squares
+		shapes["Pentagons"] = number_of_pentagons
 		
-		spell["item"] = item
+		spell["Shapes"] = shapes
 		
 		Database.saved_rune_cache[spell["Name"]] = spell
 		spell_inventory.refresh()

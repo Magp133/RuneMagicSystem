@@ -3,6 +3,7 @@ class_name CraftingSlot
 
 #gets the parent of the slot.
 @onready var rune_container = get_parent()
+
 #the item that is being stored.
 var item: Dictionary = {}
 var grid_position: int = -1

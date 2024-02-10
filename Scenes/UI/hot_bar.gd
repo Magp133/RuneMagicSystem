@@ -17,4 +17,6 @@ func add_hotbar_slots():
 	for i in range(5):
 		var new_hotbar_slot = spell_slot.instantiate()
 		new_hotbar_slot.key = keys[i]
+		new_hotbar_slot.player = player
 		hot_bar_container.add_child(new_hotbar_slot, true)
+		
