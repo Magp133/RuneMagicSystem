@@ -1,0 +1,25 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=4 format=3 uid="uid://18f488jmr2v1"]
+
+[ext_resource type="Texture2D" uid="uid://bxaolocqq3fbx" path="res://Textures/SpellEffects/small_to_big_size_curve.tres" id="1_do2dv"]
+
+[sub_resource type="Gradient" id="Gradient_7ltb5"]
+offsets = PackedFloat32Array(0, 0.731343, 1)
+colors = PackedColorArray(0.364227, 0.0160564, 0.00246269, 1, 0.714603, 0.351743, 0.118379, 1, 0.981995, 0.607925, 0.206841, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fnfnf"]
+gradient = SubResource("Gradient_7ltb5")
+
+[resource]
+particle_flag_disable_z = true
+direction = Vector3(1, 2.08165e-12, 2.08165e-12)
+spread = 5.0
+flatness = 0.137
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = ExtResource("1_do2dv")
+color_ramp = SubResource("GradientTexture1D_fnfnf")
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0

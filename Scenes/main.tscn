@@ -6,18 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b8ragnnvbnnx6" path="res://Scenes/Spells/spell.tscn" id="3_rqiwg"]
 [ext_resource type="PackedScene" uid="uid://dko1uwhby4ll4" path="res://Scenes/UI/hot_bar.tscn" id="4_78le6"]
 [ext_resource type="PackedScene" uid="uid://w58v5ymww857" path="res://Scenes/Player/player.tscn" id="5_ka4u5"]
-[ext_resource type="Texture2D" uid="uid://b2sbfkrobrjry" path="res://Sprites/icon.svg" id="6_sxtcu"]
+[ext_resource type="PackedScene" uid="uid://bxs2u04o6a80k" path="res://Scenes/Entities/enemy.tscn" id="7_5oqf7"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(1, 4)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(82, 176)
-texture = ExtResource("6_sxtcu")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(-177, 410)
-texture = ExtResource("6_sxtcu")
 
 [node name="Spells" type="Node2D" parent="."]
 
@@ -89,6 +81,23 @@ player = NodePath("../../../../Spells/Player")
 
 [node name="HotBar" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("4_78le6")]
 player = NodePath("../../Spells/Player")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("7_5oqf7")]
+position = Vector2(-538, 124)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("7_5oqf7")]
+position = Vector2(307, 257)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("7_5oqf7")]
+position = Vector2(-537, 1)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("7_5oqf7")]
+position = Vector2(480, 259)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("7_5oqf7")]
+position = Vector2(-543, -123)
 
 [connection signal="pressed" from="UI/GC/V1/Button" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/GC/V2/Button2" to="UI" method="_on_button_2_pressed"]
